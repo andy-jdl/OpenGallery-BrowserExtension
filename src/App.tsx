@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Presentation, AboutMe, Gallery } from "./pages";
 
-function App() {
+// TODO (No order)
+// Upload to plugin store
+// Integrate with an external API to call random assets (maybe multiple)
+// Call Favorites api to your favorites page
+// Take notes on mutation and what is going on here/ breakdown
+// Redo interfaces from api
+
+export default function MyApp() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Presentation />} />
+              <Route path='/about' element={<AboutMe />} />
+              <Route path='/gallery' element={<Gallery />} />
+            </Routes>
+          </BrowserRouter>
+    </QueryClientProvider>
   );
 }
-
-export default App;

@@ -1,0 +1,16 @@
+[
+  {
+    "ID": 1,
+    "title": "Smiley face",
+    "artist_name": "unknown",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Child_Art_Aged_2.5_Smiley_Face_with_Writing_Underneath.png",
+    "location": "unknown"
+  },
+  {
+    "ID": 2,
+    "title": "Starry Night",
+    "artist_name": "Vincent van Gogh",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/800px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+    "location": "MoMA"
+  }
+]
