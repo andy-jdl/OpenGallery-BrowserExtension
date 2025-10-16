@@ -1,6 +1,6 @@
-import { Asset } from "../models";
+import { Artwork } from "../models";
 
 export interface FavoriteButtonProps {
-    onFavorite:(asset: Asset) => void;
-    asset: Asset;
+    onFavorite:(asset: Artwork) => void;
+    asset: Artwork;
 }

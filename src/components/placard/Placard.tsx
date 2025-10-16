@@ -5,7 +5,6 @@ interface PlacardProps {
     location:string
 }
 
-// Extend this to include a description
 export default function Placard({title, artist, location}:PlacardProps) {
     return (
         <div className="space-y-2 mb-4">

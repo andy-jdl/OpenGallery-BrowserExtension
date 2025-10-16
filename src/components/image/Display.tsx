@@ -4,13 +4,12 @@ interface ImageProps {
 
 export default function Display({imageUrl}:ImageProps) {
     return (
-        // TODO fix presentation layout and padding.
-        // We can simply pass the url into image. So in a deployment we would need to host these via s3 bucket perhaps
-            <div className="w-1/2 mr-6">
-                <img 
-                    src={imageUrl}
-                    alt="artwork-display"
-                />
-            </div>
+        <div className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center bg-gray-100 rounded-xl shadow-sm overflow-hidden">
+            <img
+            src={imageUrl}
+            className="object-contain w-full h-full"
+            loading="eager"
+            />
+        </div>
     )
 }
