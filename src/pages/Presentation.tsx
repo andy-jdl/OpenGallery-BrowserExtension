@@ -8,63 +8,44 @@ import { queryClient } from "../lib/queryClient";
 import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
 
-import mockAsset from '../stubbs/mockAsset.json'
 
+// TODO: Description, Stutter image, Favorites implementation, Preload images
 export default function Presentation() {
-
-    const USE_STUB = true;
 
     const { data: asset, refetch } = useQuery<Artwork>({
         queryKey: ['refresh'],
-        queryFn: fetchRefresh,
-        enabled: !USE_STUB, 
+        queryFn: fetchRefresh
     });
 
-    const useData = USE_STUB ? mockAsset : asset;
-    const [index, setIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const hasMounted = useRef(false);
-    const data = mockAsset[index]
     
-    const favoriteMutation = useMutation<void, Error, Artwork>({
-        mutationFn: addFavorite,
-        onSuccess: () => {
-            console.log("Favorite added");
-            queryClient.invalidateQueries({queryKey:['favorites']})
-        }
-    })
+    function addFavorite() {
+        
+    }
 
     useEffect(() => {
-        const nextIndex = (index + 1) % mockAsset.length;
-        const nextImage = new Image();
-        nextImage.src = mockAsset[nextIndex].image_url
-    }, [index])
-
-    useEffect(() => {
-        if (!data) return;
+        if (!asset) return;
 
         if (!hasMounted.current) {
-        hasMounted.current = true;
-        return;
+            hasMounted.current = true;
+            return;
         }
 
         setIsVisible(false);
         const timer = setTimeout(() => setIsVisible(true), 200);
         return () => clearTimeout(timer);
-    }, [data]);
+    }, [asset]);
     
-    function handleFavorite(asset: Artwork) {
-        favoriteMutation.mutate(asset)
-    }
 
     async function handleRefresh() {
         setIsVisible(false);
+        refetch();
         await new Promise(r => setTimeout(r, 400));
-        setIndex((prev) => (prev + 1) % mockAsset.length);
         setIsVisible(true);
     }
     
-    if (!data) {
+    if (!asset) {
         return <p>Loading...</p>;
     }
 
@@ -73,7 +54,7 @@ export default function Presentation() {
             <AnimatePresence mode="wait">
                 {isVisible && (
                     <motion.div
-                        key={data.id}
+                        key={asset.id}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 30 }}
@@ -81,31 +62,23 @@ export default function Presentation() {
                         className="flex flex-col md:flex-row items-center gap-8"
                     >
                         <div className='flex flex-col md:flex-row items-center gap-8 -translate-y-8'>
-                            <Display imageUrl={data.image_url} />
+                            <Display imageUrl={asset.image_url} />
                             <div className='flex flex-col justify-center md:items-start text-center md:text-left'>
                                 <Placard
-                                    title={data.title}
-                                    artist={data.artist}
-                                    location={data.museum}
+                                    title={asset.title}
+                                    artist={asset.artist}
+                                    location={asset.museum}
                                 />
-                                <div className='flex gap-3 mt-4'>
-                                    <Refresh onRefresh={handleRefresh} />
-                                    <Explore title={data.title}  />
-                                </div>
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-            {data.description && 
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] md:w-[75%] lg:w-[70%] max-w-6xl bg-gray-50 shadow-sm rounded-xl px-6 py-3">
-                    <div className="max-h-32 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                        <p className="text-gray-700 text-center leading-relaxed">                                
-                            {data.description}
-                        </p>
-                    </div>
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
+                    <Refresh onRefresh={handleRefresh} />
+                    <Favorite onFavorite={addFavorite} asset='' />
+                    <Explore title={asset.title}  />
                 </div>
-            }
         </div>
     );
 }
