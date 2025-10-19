@@ -44,7 +44,11 @@ export default function Presentation() {
     }
     
     if (!asset) {
-        return <p>Loading...</p>;
+        return (
+            <div className='flex items-center gap-8 -translate-y-4'>
+                <p className='text-sky-400'>Loading...</p>;
+            </div>
+            )
     }
 
     return (
