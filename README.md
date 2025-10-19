@@ -4,7 +4,7 @@
 
 ## Contributing  
 
-**Museums, developers, and art enthusiasts** alike are warmly welcomed to contribute.  
+**Museums and developers** alike are warmly welcomed to contribute.  
 There are two main ways to get involved:  
 
 ### 1. Expanding the Collection  
