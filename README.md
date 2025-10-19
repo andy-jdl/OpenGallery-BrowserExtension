@@ -1,11 +1,10 @@
 # Open Gallery — Browser Extension  
 
-**Open Gallery** is a browser extension that brings inspiration from museums and cultural institutions right to your device.  
-Browse, save, and explore with art from around the world — one new piece at a time.  
+**Open Gallery** is a browser extension that brings inspiration from museums and cultural institutions right to your device. Browse, save, and explore with art from around the world. One new piece at a time.  
 
 ## Contributing  
 
-We warmly welcome contributions from **museums, developers, and art enthusiasts** alike.  
+**Museums, developers, and art enthusiasts** alike are warmly welcomed to contribution.  
 There are two main ways to get involved:  
 
 ### 1. Expanding the Collection  
