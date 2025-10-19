@@ -3,5 +3,7 @@ export const fetchRefresh = async () => {
     if (!response.ok) {
         throw new Error("Failed to fetch refresh data");
     }
+
+    console.log("Response: ", response)
     return response.json();
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Refresh, Explore, Favorite  } from "../components/buttons";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { addFavorite, fetchRefresh } from "../services/api";
+import { fetchRefresh } from "../services/api";
 import Placard from "../components/placard/Placard";
 import Display from "../components/image/Display";
 import { queryClient } from "../lib/queryClient";
@@ -19,7 +19,7 @@ export default function Presentation() {
 
     const [isVisible, setIsVisible] = useState(true);
     const hasMounted = useRef(false);
-    
+
     function addFavorite() {
         
     }
@@ -27,11 +27,12 @@ export default function Presentation() {
     useEffect(() => {
         if (!asset) return;
 
+        // Initial image has mounted, no need to fade out/in or recall
         if (!hasMounted.current) {
             hasMounted.current = true;
             return;
         }
-
+        
         setIsVisible(false);
         const timer = setTimeout(() => setIsVisible(true), 200);
         return () => clearTimeout(timer);
@@ -39,10 +40,7 @@ export default function Presentation() {
     
 
     async function handleRefresh() {
-        setIsVisible(false);
-        refetch();
-        await new Promise(r => setTimeout(r, 400));
-        setIsVisible(true);
+        await refetch();
     }
     
     if (!asset) {
