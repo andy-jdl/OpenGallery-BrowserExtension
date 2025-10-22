@@ -12,17 +12,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 // TODO: Description, Stutter image, Favorites implementation, Preload images
 export default function Presentation() {
 
+    const [isVisible, setIsVisible] = useState(true);
+    const hasMounted = useRef(false);
+    const [favorites, setFavorites] = useState<Artwork[]>([]);
+
     const { data: asset, refetch } = useQuery<Artwork>({
         queryKey: ['refresh'],
         queryFn: fetchRefresh
     });
 
-    const [isVisible, setIsVisible] = useState(true);
-    const hasMounted = useRef(false);
-
-    function addFavorite() {
-        
-    }
+    // Load Favorites from localstorage
+    useEffect(() => {
+        const storedFavorites = localStorage.getItem('favorites');
+        if (!storedFavorites) {
+            return;
+        } else {
+            try {
+                const favorites = JSON.parse(storedFavorites);
+                setFavorites(favorites)
+            } catch(e) {  
+                console.log('Failed to parse favorites: ', e)
+            }
+        }
+    }, [])
 
     useEffect(() => {
         if (!asset) return;
@@ -38,6 +50,18 @@ export default function Presentation() {
         return () => clearTimeout(timer);
     }, [asset]);
     
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('favorites', JSON.stringify(favorites))
+        }
+    }, [favorites])
+
+    function addFavorite(asset: Artwork) {
+        setFavorites([
+            ...favorites,
+            asset
+        ])
+    }
 
     async function handleRefresh() {
         await refetch();
@@ -78,7 +102,7 @@ export default function Presentation() {
             </AnimatePresence>
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
                     <Refresh onRefresh={handleRefresh} />
-                    <Favorite onFavorite={addFavorite} asset='' />
+                    <Favorite onFavorite={addFavorite} asset={asset} />
                     <Explore title={asset.title}  />
                 </div>
         </div>

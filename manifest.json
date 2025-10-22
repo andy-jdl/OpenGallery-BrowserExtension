@@ -13,11 +13,13 @@
   "icons": {
     
   },
-  "Author": "Andy De Leon",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "permissions": ["storage"],
-  "browser_specific_settings": {
+    "browser_specific_settings": {
   }
 }
