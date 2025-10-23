@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
 import { Refresh, Explore, Favorite  } from "../components/buttons";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchRefresh } from "../services/api";
 import Placard from "../components/placard/Placard";
 import Display from "../components/image/Display";
-import { queryClient } from "../lib/queryClient";
 import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
+import FavMenuButton from '../components/buttons/FavMenuButton';
 
 
 // TODO: Description, Stutter image, Favorites implementation, Preload images
 export default function Presentation() {
 
     const [isVisible, setIsVisible] = useState(true);
-    const hasMounted = useRef(false);
     const [favorites, setFavorites] = useState<Artwork[]>([]);
+    const [isMenuVisible, setMenuVisible] = useState(false);
+    const hasMounted = useRef(false);
 
     const { data: asset, refetch } = useQuery<Artwork>({
         queryKey: ['refresh'],
@@ -66,6 +67,10 @@ export default function Presentation() {
     async function handleRefresh() {
         await refetch();
     }
+
+    function handleSideBar() {
+        setMenuVisible(!isMenuVisible)
+    }
     
     if (!asset) {
         return (
@@ -77,6 +82,9 @@ export default function Presentation() {
 
     return (
         <div className='flex items-center justify-center min-h-screen bg-white relative'>
+            <div className='absolute top-0 right-0 size-16 m-8'>
+                <FavMenuButton onSideBar={handleSideBar}/>
+            </div>
             <AnimatePresence mode="wait">
                 {isVisible && (
                     <motion.div
