@@ -8,8 +8,6 @@ import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from '../components/sidebar/Sidebar';
 
-
-// TODO: Description, Stutter image, Favorites implementation, Preload images
 export default function Presentation() {
 
     const [isVisible, setIsVisible] = useState(true);
@@ -66,10 +64,16 @@ export default function Presentation() {
     async function handleRefresh() {
         await refetch();
     }
+
+    function handleRemove(id:string) {
+        const updated = favorites.filter(fav => fav.id !== id);
+        setFavorites(updated);
+        localStorage.setItem("favorites", JSON.stringify(updated));
+    }
     
     if (!asset) {
         return (
-            <div className='flex items-center gap-8 -translate-y-4'>
+            <div className='flex items-center gap-8'>
                 <p className='text-sky-400'>Loading...</p>;
             </div>
         )
@@ -77,7 +81,7 @@ export default function Presentation() {
 
     return (
         <div className='flex items-center justify-center min-h-screen bg-white relative'>
-            <Sidebar favoritesList={favorites}/>
+            <Sidebar favoritesList={favorites} onRemoveFavorite={handleRemove}/>
             <AnimatePresence mode="wait">
                 {isVisible && (
                     <motion.div

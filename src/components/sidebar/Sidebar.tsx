@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
-import { Artwork } from "../../models";
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import SideBarHeader from "./SideBarHeader";
+import { SidebarProps, SideBarContentProps } from "./SidebarTypes";
 
-interface SidebarProps {
-  favoritesList: Artwork[];
-}
-
-interface SideBarContentProps {
-  open: boolean;
-  favoritesList: Artwork[];
-
-}
-
-export default function Sidebar({favoritesList}: SidebarProps) {
+export default function Sidebar({favoritesList, onRemoveFavorite}: SidebarProps) {
   const FILLED_HEART =
     "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z";
   const OUTLINE_HEART =
@@ -40,30 +30,51 @@ export default function Sidebar({favoritesList}: SidebarProps) {
         animate={{opacity: 1}}
       >
         <SideBarHeader path={path} fill={fill} open={open} setOpen={setOpen}/>
-        <SideBarContents favoritesList={favoritesList} open={open} />
+        <SideBarContents favoritesList={favoritesList} open={open} onRemoveFavorite={onRemoveFavorite}/>
       </motion.nav>
   </div>
   )
 };
 
-function SideBarContents({favoritesList, open}: SideBarContentProps) {
+function SideBarContents({favoritesList, open, onRemoveFavorite}: SideBarContentProps) {
   return (
     <div>
       { open && 
         <motion.div
-                  layout
-            initial={{opacity: 0, y: 12}}
-            animate={{opacity: 1, y: 0}}
-            transition={{delay: 0.125}}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}       
         >
             <ul className="space-y-4">
-              {favoritesList.map((fav) => (
-                <li key={fav.id} className="text-sm text-gray-600">
-                  <a href={fav.image_url} target="_blank">
-                    {fav.title}
-                  </a>
-                </li>
-              ))}
+              <AnimatePresence>
+                {favoritesList.map((fav) => (
+                  <motion.li 
+                    key={fav.id} 
+                    className="text-sm text-gray-600"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <button
+                      onClick={() => onRemoveFavorite(fav.id)}
+                      className="text-sm text-red-500 hover:-translate-y-0.5 inline-block transition-transform"
+                      aria-label="Remove from favorites"
+                    >
+                      🗙
+                    </button>
+                    <a href={fav.image_url} target="_blank">
+                      {fav.title}
+                      <span 
+                        className="ml-1 text-lg text-red-500 hover:translate-x-0.5 inline-block transition-transform"
+                        aria-label="Open image in new tab"
+                      >
+                        →
+                      </span>
+                    </a>
+                  </motion.li>
+                ))}
+              </AnimatePresence>
             </ul>
         </motion.div>
       }
