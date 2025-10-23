@@ -6,7 +6,7 @@ import Placard from "../components/placard/Placard";
 import Display from "../components/image/Display";
 import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
-import FavMenuButton from '../components/buttons/FavMenuButton';
+import Sidebar from '../components/sidebar/Sidebar';
 
 
 // TODO: Description, Stutter image, Favorites implementation, Preload images
@@ -14,7 +14,6 @@ export default function Presentation() {
 
     const [isVisible, setIsVisible] = useState(true);
     const [favorites, setFavorites] = useState<Artwork[]>([]);
-    const [isMenuVisible, setMenuVisible] = useState(false);
     const hasMounted = useRef(false);
 
     const { data: asset, refetch } = useQuery<Artwork>({
@@ -67,24 +66,18 @@ export default function Presentation() {
     async function handleRefresh() {
         await refetch();
     }
-
-    function handleSideBar() {
-        setMenuVisible(!isMenuVisible)
-    }
     
     if (!asset) {
         return (
             <div className='flex items-center gap-8 -translate-y-4'>
                 <p className='text-sky-400'>Loading...</p>;
             </div>
-            )
+        )
     }
 
     return (
         <div className='flex items-center justify-center min-h-screen bg-white relative'>
-            <div className='absolute top-0 right-0 size-16 m-8'>
-                <FavMenuButton onSideBar={handleSideBar}/>
-            </div>
+            <Sidebar favoritesList={favorites}/>
             <AnimatePresence mode="wait">
                 {isVisible && (
                     <motion.div
