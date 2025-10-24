@@ -55,6 +55,8 @@ export default function Presentation() {
     }, [favorites])
 
     function addFavorite(asset: Artwork) {
+        const alreadyExists = favorites.some((art) => art.id === asset.id);
+        if (alreadyExists) return;
         setFavorites([
             ...favorites,
             asset
@@ -81,7 +83,7 @@ export default function Presentation() {
 
     return (
         <div className='flex items-center justify-center min-h-screen bg-white relative'>
-            <Sidebar favoritesList={favorites} onRemoveFavorite={handleRemove}/>
+            <Sidebar currentAssetID={asset.id} favoritesList={favorites} onRemoveFavorite={handleRemove}/>
             <AnimatePresence mode="wait">
                 {isVisible && (
                     <motion.div
@@ -105,11 +107,11 @@ export default function Presentation() {
                     </motion.div>
                 )}
             </AnimatePresence>
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
-                    <Refresh onRefresh={handleRefresh} />
-                    <Favorite onFavorite={addFavorite} asset={asset} />
-                    <Explore title={asset.title}  />
-                </div>
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
+                <Refresh onRefresh={handleRefresh} />
+                <Favorite onFavorite={addFavorite} asset={asset} />
+                <Explore related={[""]}  />
+            </div>
         </div>
     );
 }

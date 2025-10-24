@@ -24,12 +24,13 @@ export default function SideBarHeader({path, fill, open, setOpen}: SideBarProps)
 function SideBarButton({path, fill, open, setOpen}: SideBarProps) {
   return (
         <motion.button
-            onClick={() => setOpen(!open)}
-            whileHover={{scale:1.2}}
-            whileTap={{scale:0.9}}
-            aria-pressed={open}
-            className="rounded-full p-2"
-            layout
+          onClick={() => setOpen(!open)}
+          whileHover={{scale:1.2}}
+          whileTap={{scale:0.9}}
+          exit={{ opacity: 0, y: -10 }}
+          aria-pressed={open}
+          className="rounded-full p-2"
+          layout
         >
             <motion.svg
                 width="48"

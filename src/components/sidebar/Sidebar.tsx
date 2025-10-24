@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import SideBarHeader from "./SideBarHeader";
 import { SidebarProps, SideBarContentProps } from "./SidebarTypes";
 
-export default function Sidebar({favoritesList, onRemoveFavorite}: SidebarProps) {
+export default function Sidebar({currentAssetID, favoritesList, onRemoveFavorite}: SidebarProps) {
   const FILLED_HEART =
     "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z";
   const OUTLINE_HEART =
@@ -13,10 +13,12 @@ export default function Sidebar({favoritesList, onRemoveFavorite}: SidebarProps)
   const [path, setPath] = useState(OUTLINE_HEART);
 
   useEffect(() => {
-    const hasFavorites = favoritesList.length > 0;
-    setFill(hasFavorites ? "red" : "none");
-    setPath(hasFavorites ? FILLED_HEART : OUTLINE_HEART)
-  },[favoritesList])
+    console.log("favoritesList", favoritesList);
+  console.log("currentAssetID", currentAssetID);
+    const isFavorite = favoritesList.some(a => a.id === currentAssetID);
+    setFill(isFavorite ? "red" : "none");
+    setPath(isFavorite ? FILLED_HEART : OUTLINE_HEART)
+  },[favoritesList, currentAssetID])
 
   return (
     <div className="fixed top-0 left-0">
