@@ -4,6 +4,5 @@ export const fetchRefresh = async () => {
         throw new Error("Failed to fetch refresh data");
     }
 
-    console.log("Response: ", response)
     return response.json();
 }

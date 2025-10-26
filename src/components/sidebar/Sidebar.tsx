@@ -13,8 +13,6 @@ export default function Sidebar({currentAssetID, favoritesList, onRemoveFavorite
   const [path, setPath] = useState(OUTLINE_HEART);
 
   useEffect(() => {
-    console.log("favoritesList", favoritesList);
-  console.log("currentAssetID", currentAssetID);
     const isFavorite = favoritesList.some(a => a.id === currentAssetID);
     setFill(isFavorite ? "red" : "none");
     setPath(isFavorite ? FILLED_HEART : OUTLINE_HEART)

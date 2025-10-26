@@ -7,6 +7,7 @@ import Display from "../components/image/Display";
 import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from '../components/sidebar/Sidebar';
+import Attribution from '../components/attribution/Attribution';
 
 export default function Presentation() {
 
@@ -76,42 +77,49 @@ export default function Presentation() {
     if (!asset) {
         return (
             <div className='flex items-center gap-8'>
-                <p className='text-sky-400'>Loading...</p>;
+                <p>Loading...</p>;
             </div>
         )
     }
 
+    const hasDescription = asset.description.length !== 0;
+
     return (
-        <div className='flex items-center justify-center min-h-screen bg-white relative'>
+        <div className='flex min-h-screen bg-white relative'>
             <Sidebar currentAssetID={asset.id} favoritesList={favorites} onRemoveFavorite={handleRemove}/>
-            <AnimatePresence mode="wait">
-                {isVisible && (
-                    <motion.div
-                        key={asset.id}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 30 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="flex flex-col md:flex-row items-center gap-8"
-                    >
+            <div className="flex flex-1 ml-[225px] items-center justify-center">
+                <AnimatePresence mode="wait">
+                    {isVisible && (
+                        <motion.div
+                            key={asset.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 30 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="flex flex-col md:flex-row items-center gap-8"
+                        >
                         <div className='flex flex-col md:flex-row items-center gap-8 -translate-y-8'>
                             <Display imageUrl={asset.image_url} />
-                            <div className='flex flex-col justify-center md:items-start text-center md:text-left'>
+                            <div className='flex flex-col justify-center md:items-start text-center md:text-left max-w-[500px]'>
                                 <Placard
                                     title={asset.title}
                                     artist={asset.artist}
                                     location={asset.museum}
+                                    description={asset.description}
+                                    related={asset.related}
                                 />
                             </div>
                         </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
                 <Refresh onRefresh={handleRefresh} />
                 <Favorite onFavorite={addFavorite} asset={asset} />
                 <Explore related={[""]}  />
             </div>
+            <Attribution hasDescription={hasDescription} attribution={asset.attribution} />
         </div>
     );
 }
