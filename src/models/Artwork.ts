@@ -6,6 +6,7 @@ export interface Artwork {
     imageId: string,
     image_url: string,
     museum: string,
+    museum_url: string,
     related: string,
     attribution: string
     colors: Colors;

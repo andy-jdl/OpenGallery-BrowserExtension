@@ -118,7 +118,7 @@ export default function Presentation() {
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
                 <Refresh onRefresh={handleRefresh} />
                 <Favorite onFavorite={addFavorite} asset={asset} />
-                <Explore  url=""/>
+                <Explore  url={asset.museum_url}/>
             </div>
             <Attribution hasDescription={hasDescription} attribution={asset.attribution} />
         </div>
