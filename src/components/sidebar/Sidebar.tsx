@@ -21,7 +21,7 @@ export default function Sidebar({currentAssetID, favoritesList, onRemoveFavorite
   return (
     <div className="fixed top-0 left-0">
       <motion.nav 
-        className="absolute top-0 left-0 h-screen border-r border-slate-200 bg-white shadow-lg p-2 overflow-auto"
+        className="absolute top-0 left-0 h-screen border-r border-slate-200 bg-slate-50 shadow-lg p-2 overflow-auto"
         style={{
           width: open ? "225px" : 'fit-content'
         }}  
@@ -50,7 +50,7 @@ function SideBarContents({favoritesList, open, onRemoveFavorite}: SideBarContent
                 {favoritesList.map((fav) => (
                   <motion.li 
                     key={fav.id} 
-                    className="text-sm text-gray-600"
+                    className="text-base text-gray-800"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
@@ -58,18 +58,18 @@ function SideBarContents({favoritesList, open, onRemoveFavorite}: SideBarContent
                   >
                     <button
                       onClick={() => onRemoveFavorite(fav.id)}
-                      className="text-sm text-red-500 hover:-translate-y-0.5 inline-block transition-transform"
+                      className="text-lg hover:-translate-y-0.5 inline-block transition-transform"
                       aria-label="Remove from favorites"
                     >
-                      🗙
+                      🗑
                     </button>
                     <a href={fav.image_url} target="_blank">
                       {fav.title}
                       <span 
-                        className="ml-1 text-lg text-red-500 hover:translate-x-0.5 inline-block transition-transform"
+                        className="ml-1 text-lg text-red-900 hover:translate-x-0.5 inline-block transition-transform"
                         aria-label="Open image in new tab"
                       >
-                        →
+                        ↗
                       </span>
                     </a>
                   </motion.li>

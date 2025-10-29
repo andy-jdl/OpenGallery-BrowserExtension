@@ -17,7 +17,7 @@ export default function SmartButton({
     return (
         <button 
             style={{opacity: isDisabled ? 0.5 : 1}} 
-            className={variant} 
+            className={`${variant} focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-2`}
             disabled={isDisabled} 
             onClick={onClick}
         >

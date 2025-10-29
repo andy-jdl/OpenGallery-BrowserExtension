@@ -1,11 +1,12 @@
 import SmartButton from "./SmartButtons";
-import { ExploreProps } from "../../types/ExploreProps";
 
-export default function ExploreButton({related}: ExploreProps) {
-    const baseUrl = "https://www.google.com/search?q=";
+interface ExploreProps {
+    url: string
+}
 
+export default function ExploreButton({url}:ExploreProps) {
     function handleExplore() {
-        window.open("url", "_blank");
+        window.open(url, "_blank");
     }
 
     return (

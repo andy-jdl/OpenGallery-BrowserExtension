@@ -8,6 +8,7 @@ import { Artwork } from '../models';
 import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from '../components/sidebar/Sidebar';
 import Attribution from '../components/attribution/Attribution';
+import placeholder from "../assets/placeholder.png"
 
 export default function Presentation() {
 
@@ -83,7 +84,7 @@ export default function Presentation() {
     }
 
     const hasDescription = asset.description.length !== 0;
-
+    const src = asset.image_url?.trim() ? asset.image_url : placeholder
     return (
         <div className='flex min-h-screen bg-white relative'>
             <Sidebar currentAssetID={asset.id} favoritesList={favorites} onRemoveFavorite={handleRemove}/>
@@ -99,14 +100,14 @@ export default function Presentation() {
                             className="flex flex-col md:flex-row items-center gap-8"
                         >
                         <div className='flex flex-col md:flex-row items-center gap-8 -translate-y-8'>
-                            <Display imageUrl={asset.image_url} />
+                            <Display imageUrl={src} />
                             <div className='flex flex-col justify-center md:items-start text-center md:text-left max-w-[500px]'>
                                 <Placard
                                     title={asset.title}
                                     artist={asset.artist}
                                     location={asset.museum}
                                     description={asset.description}
-                                    related={asset.related}
+                                    colors={asset.colors}
                                 />
                             </div>
                         </div>
@@ -117,7 +118,7 @@ export default function Presentation() {
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
                 <Refresh onRefresh={handleRefresh} />
                 <Favorite onFavorite={addFavorite} asset={asset} />
-                <Explore related={[""]}  />
+                <Explore  url=""/>
             </div>
             <Attribution hasDescription={hasDescription} attribution={asset.attribution} />
         </div>

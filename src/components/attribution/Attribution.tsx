@@ -4,14 +4,14 @@ import { AttributionProps } from "./type";
 
 export default function Attribution({ hasDescription, attribution }: AttributionProps) {
     const [hovered, setHovered] = useState(false);
-    
+    // TODO Icon not accessible
     return (
         <div
             className="absolute bottom-6 right-6"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <div className="flex items-center justify-center rounded-full w-6 h-6 bg-gray-100 text-gray-600 font-semibold cursor-pointer hover:bg-gray-200 transition">
+            <div aria-label="More Information" className="flex items-center justify-center rounded-full w-6 h-6 bg-gray-100 text-gray-600 font-semibold cursor-pointer hover:bg-gray-200 transition">
                 i
             </div>
 

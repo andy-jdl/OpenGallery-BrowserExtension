@@ -1,11 +1,12 @@
-export interface PlacardProps {
+export interface PlacardProps{
     title:string
     artist:string
     location:string
-    description: string
-    related: string   
+    description: string    
+    colors: ColorDot
 }
 
-export interface ColorDotsProps {
-  colors: string;
+export interface ColorDot {
+  profile: string;
+  palette: string;
 }
