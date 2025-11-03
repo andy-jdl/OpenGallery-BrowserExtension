@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure html/body/root have height 100% */
+html, body, #root {
+  height: 100%;
+}

@@ -1,16 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Presentation } from "./pages";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 export default function MyApp() {
+  console.log("Open Gallery React code running!");
   return (
     <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Presentation />} />
-            </Routes>
-          </BrowserRouter>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Presentation />} />
+        </Routes>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
