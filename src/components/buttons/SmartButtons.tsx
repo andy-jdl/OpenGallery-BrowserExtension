@@ -1,5 +1,13 @@
-import React, { JSX } from "react";
-import { SmartButtonProps } from "../../types/SmartButtonProps";
+import { ReactNode, JSX } from "react";
+
+interface SmartButtonProps {
+    text: string;
+    onClick: () => void;
+    variant?: string
+    loading?: boolean;
+    disabled?: boolean;
+    icon?: ReactNode;
+}
 
 export default function SmartButton({
     text, 

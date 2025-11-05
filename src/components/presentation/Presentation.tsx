@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { Refresh, Explore, Favorite  } from "../components/buttons";
+import { Refresh, Explore, Favorite  } from "../buttons";
 import { useQuery } from "@tanstack/react-query";
-import { fetchRefresh } from "../services/api";
-import Placard from "../components/placard/Placard";
-import Display from "../components/image/Display";
-import { Artwork } from '../models';
+import { fetchRefresh } from "../../services/api";
+import Placard from "../placard/Placard";
+import Display from "../image/Display";
+import { Artwork } from '../../models';
 import { motion, AnimatePresence } from 'framer-motion'
-import Sidebar from '../components/sidebar/Sidebar';
-import Attribution from '../components/attribution/Attribution';
-import placeholder from "../assets/placeholder.png"
+import Sidebar from '../sidebar/Sidebar';
+import Attribution from '../attribution/Attribution';
+import placeholder from "../../assets/placeholder.png";
 
 export default function Presentation() {
 

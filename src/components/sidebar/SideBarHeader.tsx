@@ -1,18 +1,7 @@
 import { motion } from "framer-motion";
-import { Dispatch, SetStateAction } from "react";
+import { SideBarHeaderProps, SideBarHeaderTitleProps } from "./SidebarTypes";
 
-interface SideBarProps{
-    path: string;
-    fill: string;
-    open: boolean;
-    setOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-interface TitleBarProps {
-  open: boolean;
-}
-
-export default function SideBarHeader({path, fill, open, setOpen}: SideBarProps) {
+export default function SideBarHeader({path, fill, open, setOpen}: SideBarHeaderProps) {
     return (
         <div className="flex items-center m-4">
           <SideBarButton path={path} fill={fill} open={open} setOpen={setOpen} />
@@ -21,7 +10,7 @@ export default function SideBarHeader({path, fill, open, setOpen}: SideBarProps)
     );
 }
 
-function SideBarButton({path, fill, open, setOpen}: SideBarProps) {
+function SideBarButton({path, fill, open, setOpen}: SideBarHeaderProps) {
   return (
         <motion.button
           onClick={() => setOpen(!open)}
@@ -50,7 +39,7 @@ function SideBarButton({path, fill, open, setOpen}: SideBarProps) {
   )
 }
 
-function SideBarTitle({open}: TitleBarProps) {
+function SideBarTitle({open}: SideBarHeaderTitleProps) {
   return (
     <div className="flex items-center gap-2">
       {open && (

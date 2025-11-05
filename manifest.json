@@ -4,9 +4,6 @@
   "version": "1.0",
 
   "action": {
-    "default_icon": {
-
-    },
     "default_title": "Open Gallery"
   },
   "description": "See a new artworks from different museums and their vast collections. Anytime you open a new tab.",

@@ -1,5 +1,7 @@
 import SmartButton from "./SmartButtons";
-import { RefreshButtonProps } from "../../types/RefreshProps";
+interface RefreshButtonProps {
+    onRefresh: () => void;
+}
 
 export default function RefreshButton({onRefresh}: RefreshButtonProps) {
 

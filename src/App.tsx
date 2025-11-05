@@ -1,6 +1,6 @@
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Presentation } from "./pages";
+import { Presentation } from "./components/presentation";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 export default function MyApp() {

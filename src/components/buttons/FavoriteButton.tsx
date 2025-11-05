@@ -1,5 +1,10 @@
 import SmartButton from "./SmartButtons";
-import { FavoriteButtonProps } from "../../types/FavoriteProps";
+import { Artwork } from "../../models/Artwork";
+
+interface FavoriteButtonProps {
+    onFavorite:(asset: Artwork) => void;
+    asset: Artwork;
+}
 
 export default function FavoriteButton({onFavorite, asset}:FavoriteButtonProps) {
     function handleRefresh() {

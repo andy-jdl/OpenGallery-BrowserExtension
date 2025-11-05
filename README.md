@@ -22,12 +22,4 @@ is no safe filter.
 The extension does not endorse or represent the views of any institution; all images belong to their respective museums and collections.  
 
 ## Acknowledgements 
-Open Gallery would not be possible without the generosity and open access initiatives of these institutions:
-
-- [Art Institute of Chicago](https://api.artic.edu/docs/)
-- [Cleveland Museum of Art](https://openaccess-api.clevelandart.org/)
-- [Harvard Art Museums](https://harvardartmuseums.org/collections/api)
-- [The Metropolitan Museum of Art](https://metmuseum.github.io/)
-- [The Getty Museum](https://data.getty.edu/)
-- [The Louvre](https://collections.louvre.fr/en/)
-- More to follow
+Open Gallery would not be possible without the generosity and open access initiatives from museums who share their works freely.

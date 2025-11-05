@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AttributionProps } from "./type";
+
+interface AttributionProps {
+    hasDescription: boolean;
+    attribution: string;
+}
 
 export default function Attribution({ hasDescription, attribution }: AttributionProps) {
     const [hovered, setHovered] = useState(false);

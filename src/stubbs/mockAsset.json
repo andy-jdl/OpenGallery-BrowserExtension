@@ -1,79 +1,92 @@
 [
   {
-    "id": "23841",
-    "title": "Canyon de Chelly: No. 8",
-    "artist": "William R. Current",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "image_id": "d8ca21e3-6a19-f531-f95c-49221dce8726",
-    "image_url": "https://www.artic.edu/iiif/2/d8ca21e3-6a19-f531-f95c-49221dce8726/full/600,/0/default.jpg",
+    "id": "107265",
+    "title": "A la pintura: Blue 12-13",
+    "artist": "Robert Motherwell",
+    "image_id": "1a6e074d-d0b3-5e11-c68f-68391cd5e9f3",
+    "image_url": "https://www.artic.edu/iiif/2/1a6e074d-d0b3-5e11-c68f-68391cd5e9f3/full/600,/0/default.jpg",
     "museum": "Art Institute of Chicago",
+    "museum_url": "https://www.artic.edu",
+    "attribution": "Courtesy of The Art Institute of Chicago",
+    "colors": {
+      "profile": "hls",
+      "palette": "203.000000, 47.000000, 65.000000"
+    },
     "related": "",
-    "Attribution": "Courtesy of the Art Institute of Chicago"
+    "copyright": "",
+    "description": "",
+    "city": "Chicago"
   },
   {
-    "id": "154524",
-    "title": "Untitled (piazza, Padua, Italy)",
-    "artist": "Unidentified Artist",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "image_id": "154524",
-    "image_url": "https://nrs.harvard.edu/urn-3:HUAM:INV110668_dynmc",
+    "id": "123258",
+    "title": "Actualités:  --Dites donc! dites donc! celeste Empereur....",
+    "artist": "Clémente Pruche (French, 1831–1870)",
+    "image_id": "1943.507",
+    "image_url": "https://openaccess-cdn.clevelandart.org/1943.507/1943.507_web.jpg",
+    "museum": "Cleveland Museum of Art",
+    "museum_url": "https://www.clevelandart.org/home",
+    "attribution": "Courtesy of The Cleveland Museum of Art",
+    "colors": {
+      "profile": "",
+      "palette": ""
+    },
+    "related": "",
+    "copyright": "",
+    "description": "",
+    "city": "Cleveland"
+  },
+  {
+    "id": "822752",
+    "title": "Asses Drinking, from \"Illustrated London News\"",
+    "artist": "Henry Linton, After intermediary draftsman Thomas Beech, After Richard Ansdell",
+    "image_id": "2019.279.20",
+    "image_url": "https://images.metmuseum.org/CRDImages/dp/web-large/DP888821.jpg",
+    "museum": "The Met",
+    "museum_url": "https://www.metmuseum.org/",
+    "attribution": "Courtesy of The Metropolitan Museum of Art, New York",
+    "colors": {
+      "profile": "",
+      "palette": ""
+    },
+    "related": "https://www.metmuseum.org/art/collection/search/822752",
+    "copyright": "",
+    "description": "",
+    "city": "New York"
+  },
+  {
+    "id": "128812",
+    "title": "Untitled (two girls dressed in white, wearing veils, holding bibles and rosaries, one seated)",
+    "artist": "John Deusing",
+    "image_id": "128812",
+    "image_url": "https://nrs.harvard.edu/urn-3:HUAM:INV056132_dynmc",
     "museum": "Harvard Art Museum",
-    "related": "#000000, #2f4f4f, #556b2f, #696969, #808080, #a9a9a9",
-    "Attribution": "Courtesy of The Harvard Art Museums"
+    "museum_url": "https://harvardartmuseums.org/",
+    "attribution": "Courtesy of The Harvard Art Museums",
+    "colors": {
+      "profile": "rbg",
+      "palette": "#000000, #2f4f4f, #556b2f, #696969, #808080, #bc8f8f, #c0c0c0, #d2b48c"
+    },
+    "related": "",
+    "copyright": "",
+    "description": "",
+    "city": "Cambridge"
   },
   {
-  "id": "157778",
-  "title": "Untitled",
-  "artist": "W. Eugene Smith",
-  "description": "",
-  "image_id": "1d2a2ecf-2959-41e2-f74d-119b8ccebc01",
-  "image_url": "https://www.artic.edu/iiif/2/1d2a2ecf-2959-41e2-f74d-119b8ccebc01/full/600,/0/default.jpg",
-  "museum": "Art Institute of Chicago",
-  "related": "",
-  "Attribution": "Courtesy of the Art Institute of Chicago"
-},
-{
-  "id": "157802",
-  "title": "The Doctor at Work Examines the Post-Operative Patients on the Upper Floor of a Schweitzer-designed structure",
-  "artist": "W. Eugene Smith",
-  "description": "",
-  "image_id": "14d59873-f2ae-9173-2ab4-f66ee472ae1c",
-  "image_url": "https://www.artic.edu/iiif/2/14d59873-f2ae-9173-2ab4-f66ee472ae1c/full/600,/0/default.jpg",
-  "museum": "Art Institute of Chicago",
-  "related": "",
-  "Attribution": "Courtesy of the Art Institute of Chicago"
-},
-{
-  "id": "45682",
-  "title": "Silent fisherman in an autumn wood",
-  "artist": "Shen Zhou",
-  "description": "",
-  "image_id": "1989.363.46",
-  "image_url": "https://images.metmuseum.org/CRDImages/as/web-large/DP-13849-002.jpg",
-  "museum": "The Met",
-  "related": "https://www.metmuseum.org/art/collection/search/45682",
-  "Attribution": "Courtesy of The Metropolitan Museum of Art, New York"
-},
-{
-  "id": "261652",
-  "title": "Five Soldiers",
-  "artist": "Salvator Rosa",
-  "description": "",
-  "image_id": "261652",
-  "image_url": "https://nrs.harvard.edu/urn-3:HUAM:INV171590_dynmc",
-  "museum": "Harvard Art Museum",
-  "related": "#2f4f4f, #556b2f, #696969, #808080, #bc8f8f, #c0c0c0, #d2b48c, #d8bfd8",
-  "Attribution": "Courtesy of The Harvard Art Museums"
-},
-{
-  "id": "157341",
-  "title": "Mat Weight in the Form of a Bear",
-  "artist": "",
-  "description": "Bear imagery, which symbolized heroic power, was particularly popular during the Han dynasty.",
-  "image_id": "1994.203",
-  "image_url": "https://openaccess-cdn.clevelandart.org/1994.203/1994.203_web.jpg",
-  "museum": "Cleveland Museum of Art",
-  "related": "",
-  "Attribution": "Courtesy of the The Cleveland Museum of Art"
-}
+    "id": "RF 1982 64",
+    "title": "Nymphe endormie",
+    "artist": "Tissier, Ange, France",
+    "image_id": "cl010060192",
+    "image_url": "https://collections.louvre.fr/media/cache/large/0000000021/0000060192/0001149690_OG.JPG",
+    "museum": "The Louvre",
+    "museum_url": "https://www.louvre.fr/en",
+    "attribution": "Courtesy of The Louvre",
+    "colors": {
+      "profile": "",
+      "palette": ""
+    },
+    "related": "",
+    "copyright": "© 2022 GrandPalaisRmn (musée du Louvre) / Michel Urtado",
+    "description": "Format : composition cintrée",
+    "city": "Paris"
+  }
 ]
