@@ -27,12 +27,12 @@ function ColorPalette({profile, palette}: ColorDot) {
 
         return (
             <motion.div
-            className="w-10 h-3 rounded-full border border-gray-300"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            style={{ backgroundColor: hlsColor }}
-            title="Dominant color"
+                className="w-10 h-3 rounded-full border border-gray-300"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                style={{ backgroundColor: hlsColor }}
+                title="Dominant color"
             />
         );
     }

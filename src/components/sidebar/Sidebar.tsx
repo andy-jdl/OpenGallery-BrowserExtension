@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import SideBarHeader from "./SideBarHeader";
 import { SidebarProps, SideBarContentProps } from "./SidebarTypes";
+import { sanitizeText, sanitizeURL } from "../../utils/sanitizeText";
 
 export default function Sidebar({currentAssetID, favoritesList, onRemoveFavorite}: SidebarProps) {
   const FILLED_HEART =
@@ -63,8 +64,8 @@ function SideBarContents({favoritesList, open, onRemoveFavorite}: SideBarContent
                     >
                       🗑
                     </button>
-                    <a href={fav.image_url} target="_blank">
-                      {fav.title}
+                    <a href={sanitizeURL(fav.image_url)} target="_blank">
+                      {sanitizeText(fav.title)}
                       <span 
                         className="ml-1 text-lg text-red-900 hover:translate-x-0.5 inline-block transition-transform"
                         aria-label="Open image in new tab"

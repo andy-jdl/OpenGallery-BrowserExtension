@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from '../sidebar/Sidebar';
 import Attribution from '../attribution/Attribution';
 import placeholder from "../../assets/placeholder.png";
+import { sanitizeText, sanitizeURL } from '../../utils/sanitizeText';
 
 export default function Presentation() {
 
@@ -84,7 +85,7 @@ export default function Presentation() {
     }
 
     const hasDescription = asset.description.length !== 0;
-    const src = asset.image_url?.trim() ? asset.image_url : placeholder
+    const src = sanitizeURL(asset.image_url?.trim()) ? asset.image_url : placeholder
     return (
         <div className='flex min-h-screen bg-white relative'>
             <Sidebar currentAssetID={asset.id} favoritesList={favorites} onRemoveFavorite={handleRemove}/>
@@ -103,10 +104,10 @@ export default function Presentation() {
                             <Display imageUrl={src} />
                             <div className='flex flex-col justify-center md:items-start text-center md:text-left max-w-[500px]'>
                                 <Placard
-                                    title={asset.title}
-                                    artist={asset.artist}
-                                    location={asset.museum}
-                                    description={asset.description}
+                                    title={sanitizeText(asset.title)}
+                                    artist={sanitizeText(asset.artist)}
+                                    location={sanitizeText(asset.museum)}
+                                    description={sanitizeText(asset.description)}
                                     colors={asset.colors}
                                 />
                             </div>
@@ -118,9 +119,9 @@ export default function Presentation() {
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
                 <Refresh onRefresh={handleRefresh} />
                 <Favorite onFavorite={addFavorite} asset={asset} />
-                <Explore  url={asset.museum_url}/>
+                <Explore  url={sanitizeText(asset.museum_url)}/>
             </div>
-            <Attribution hasDescription={hasDescription} attribution={asset.attribution} />
+            <Attribution hasDescription={hasDescription} attribution={sanitizeText(asset.attribution)} />
         </div>
     );
 }
