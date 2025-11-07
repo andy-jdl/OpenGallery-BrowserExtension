@@ -7,7 +7,10 @@ export default function Placard({title, artist, location, description, colors}:P
             <p className="text-lg font-semibold">{title}</p>
             <p className='font-sans'>{artist}</p>
             <p className='font-sans'>{location}</p>
-            <p className='font-sans'>{description}</p>
+            <p 
+                className='font-sans' 
+                dangerouslySetInnerHTML={{ __html:(description) }}
+            />
             <ColorPalette profile={colors.profile} palette={colors.palette}/>
         </div>
     )
