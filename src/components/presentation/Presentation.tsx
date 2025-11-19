@@ -22,7 +22,6 @@ export default function Presentation() {
         queryFn: fetchRefresh
     });
 
-    // Load Favorites from localstorage
     useEffect(() => {
         const storedFavorites = localStorage.getItem('favorites');
         if (!storedFavorites) {
@@ -40,7 +39,6 @@ export default function Presentation() {
     useEffect(() => {
         if (!asset) return;
 
-        // Initial image has mounted, no need to fade out/in or recall
         if (!hasMounted.current) {
             hasMounted.current = true;
             return;
