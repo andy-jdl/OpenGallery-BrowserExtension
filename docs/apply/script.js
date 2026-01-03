@@ -11,7 +11,7 @@ document.getElementById('application-form').addEventListener('submit', async fun
     e.preventDefault();
 
     const form = e.target;
-    const url = 'https://open-gallery-app-service-dgh5c7akd5b0cyam.centralus-01.azurewebsites.net/api/v1/artist-application';
+    const url = 'https://open-gallery-backend-fqg5epekaah2e9da.centralus-01.azurewebsites.net/api/artist-application';
     const payload = {
         name: form.name.value.trim(),
         email: form.email.value.trim(),
@@ -31,8 +31,8 @@ document.getElementById('application-form').addEventListener('submit', async fun
         });
 
         if (!response.ok) {
-            const error = await response.json();
-            showToast(error.message);
+            const errorText = await response.text();
+            showToast(errorText);
         } else {
             showToast('Application submitted successfully');
             form.reset();
