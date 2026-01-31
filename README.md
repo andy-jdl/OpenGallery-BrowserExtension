@@ -15,11 +15,5 @@ You can contribute by:
 - Opening an issue to suggest ideas or report bugs.  
 - Forking this repository, creating a new branch for your changes, and submitting a pull request when ready.  
 
-## Viewer Discretion  
-Please note: Open Gallery may include images that may not be suitable for all audiences. At this moment there 
-is no safe filter.
-
-The extension does not endorse or represent the views of any institution; all images belong to their respective museums and collections.  
-
-## Acknowledgements 
-Open Gallery would not be possible without the generosity and open access initiatives from museums who share their works freely.
+### Chrome Extension
+Chrome Web Store - [listing](https://chromewebstore.google.com/detail/open-gallery/flagpjggladkoegddlieccjlpncdcbme)
