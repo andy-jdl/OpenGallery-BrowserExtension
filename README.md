@@ -1,6 +1,10 @@
 # Open Gallery — Browser Extension  
 **Open Gallery** is a browser extension that brings inspiration from museums and cultural institutions right to your device. Browse, favorite, and explore with art from around the world. One piece at a time.  
 
+
+<img width="1918" height="878" alt="open-gallery-2-12-2026" src="https://github.com/user-attachments/assets/fc9d1f70-8639-4ea0-8f86-ae7d02150c9c" />
+
+
 ## Contributing  
 **Museums and developers** alike are warmly welcomed to contribute in one of two ways. 
 
@@ -17,3 +21,4 @@ You can contribute by:
 
 ### Chrome Extension
 Chrome Web Store - [listing](https://chromewebstore.google.com/detail/open-gallery/flagpjggladkoegddlieccjlpncdcbme)
+
