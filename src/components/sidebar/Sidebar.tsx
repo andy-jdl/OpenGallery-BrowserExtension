@@ -22,7 +22,7 @@ export default function Sidebar({currentAssetID, favoritesList, onRemoveFavorite
   return (
     <div className="fixed top-0 left-0">
       <motion.nav 
-        className="absolute top-0 left-0 h-screen border-r border-slate-200 bg-slate-50 shadow-lg p-2 overflow-auto"
+        className="absolute top-0 left-0 h-screen border-r border-slate-200 bg-[#F2F0E8] shadow-lg p-2 overflow-auto"
         style={{
           width: open ? "225px" : 'fit-content'
         }}  
