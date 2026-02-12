@@ -4,11 +4,11 @@ import { PlacardProps, ColorDot } from "./type";
 export default function Placard({title, artist, location, description, colors}:PlacardProps) {
     return (
         <div className="space-y-2 mb-4">
-            <p className="text-lg font-semibold">{title}</p>
-            <p className='font-sans'>{artist}</p>
-            <p className='font-sans'>{location}</p>
+            <p className="text-2xl font-semibold">{title}</p>
+            <p className='text-lg font-[500] font-sans'>{artist}</p>
+            <p className='text-base font-[400] font-sans'>{location}</p>
             <p 
-                className='font-sans' 
+                className='text-base font-[400] font-sans' 
                 dangerouslySetInnerHTML={{ __html:(description) }}
             />
             <ColorPalette profile={colors.profile} palette={colors.palette}/>

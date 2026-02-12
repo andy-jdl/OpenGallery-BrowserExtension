@@ -77,7 +77,7 @@ export default function Presentation() {
     if (!asset) {
         return (
             <div className='flex items-center gap-8'>
-                <p>Loading...</p>;
+                <p>Loading...</p>
             </div>
         )
     }
@@ -85,7 +85,7 @@ export default function Presentation() {
     const hasDescription = asset.description.length !== 0;
     const src = sanitizeURL(asset.image_url?.trim()) ? asset.image_url : placeholder
     return (
-        <div className='flex min-h-screen bg-white relative'>
+        <div className='flex min-h-screen bg-[#F8F7F2] relative'>
             <Sidebar currentAssetID={asset.id} favoritesList={favorites} onRemoveFavorite={handleRemove}/>
             <div className="flex flex-1 ml-[225px] items-center justify-center">
                 <AnimatePresence mode="wait">
@@ -114,7 +114,7 @@ export default function Presentation() {
                     )}
                 </AnimatePresence>
             </div>
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-sm rounded-xl px-6 py-3">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[60%] md:w-[55%] lg:w-[30%] flex justify-center items-center space-x-8 bg-gray-50 shadow-md rounded-xl px-6 py-3">
                 <Refresh onRefresh={handleRefresh} />
                 <Favorite onFavorite={addFavorite} asset={asset} />
                 <Explore  url={sanitizeText(asset.museum_url)}/>

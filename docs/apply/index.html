@@ -29,8 +29,12 @@
                 <input type="url" id="portfolio" name="portfolio" class="mt-1 mb-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
             <div>
-                <label for="image_links" class="block text-sm font-medium">Image Links</label>
-                <textarea id="image_links" name="image_links" rows="4" class="mt-1 mb-1 block w-full border border-gray-300 rounded-md p-2 placeholder:text-gray-500 placeholder:italic" placeholder="Google Drive, Instagram, etc."></textarea>
+                <label for="image_files" class="block text-sm font-medium">Upload Files</label>
+                <input type="file" id="image_files" name="image_files" multiple class="mt-1 mb-1 block w-full border border-gray-300 rounded-md p-2">
+            </div>
+            <div>
+                <p class="text-sm font-medium mb-2">Preview</p>
+                <div id="image-preview" class="flex flex-wrap gap-2"></div>
             </div>
             <div class="hidden">
                 <label for="website">Website</label>
